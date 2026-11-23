@@ -15,7 +15,7 @@ def afficher(g, fichier="graphe", moteur="sfdp"):
 
         for v in g.get_nodes():
             taille = 0.05 + 0.05 * sqrt(v.get_degree())
-            c = "red" if v.get_color() == "red" else "blue"
+            c = v.get_color()
             dot.node(v.get_label(), width=str(taille), height=str(taille),
                     fillcolor=c, color=c)
 
@@ -25,5 +25,5 @@ def afficher(g, fichier="graphe", moteur="sfdp"):
         dot.render(fichier, view=True, cleanup=True)
 
 new_modele = modele()
-new_modele.attachement_pref(300, 0.3, 0.7)
+new_modele.attachement_pref(300, 0.5, 0)
 afficher(new_modele.graph)

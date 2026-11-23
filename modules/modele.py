@@ -10,9 +10,9 @@ class modele:
 
     def get_graph(self):
         return self.graph
-    
+
     def attachement_pref(self, n,  r, rho):
-        ''''
+        '''
         n : int ; nombre de noeuds dans le modele
         r ; float : probabilité qu'un nouveau noeud soit rouge
         rho ; float : probabilité d'avoir une arete entre deux noeuds de couleurs differentes
@@ -21,7 +21,7 @@ class modele:
             raise ValueError("r doit etre entre 0 et 1/2")
         if rho < 0 or rho > 1:
             raise ValueError("rho doit etre entre 0 et 1")
-        
+
         liste = self.graph.get_nodes().copy() #liste pour choisir les noeuds proportionnellement avec leur nombre de connexions
         cpt = len(liste)
 
@@ -44,5 +44,4 @@ class modele:
                     self.graph.add_color(new_node_color)
                     cpt += 1
                     break
-
     
